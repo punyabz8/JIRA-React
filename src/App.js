@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import Home from "./views/Home";
+import Home from './views/Home'
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <Home />
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
