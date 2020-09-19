@@ -1,10 +1,12 @@
 import React from "react";
 
+import Home from "./views/Home";
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>This app is in construction.</p>
+        <Home />
       </header>
     </div>
   );
