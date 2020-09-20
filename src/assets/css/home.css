@@ -1,0 +1,6 @@
+/* this is the just for the demo */
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
