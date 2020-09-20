@@ -35,7 +35,7 @@
   "description": "Front-end for 7th sem. Project",
   "main": "index.js",
   "devDependencies": {
-    "eslint": "^7.9.0",
+    "eslint": "6.8.0",
     "eslint-config-airbnb": "^18.2.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
