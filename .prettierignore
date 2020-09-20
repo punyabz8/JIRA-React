@@ -1,0 +1,17 @@
+# Build directory
+dist
+
+# Package file
+package.json
+
+# Static files and npm files
+node_modules/
+public/
+
+# Files
+.eslintrc.js
+.env
+.editorconfig
+.prettierrc
+README.md
+yarn.lock
