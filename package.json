@@ -43,17 +43,22 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.2",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
     "prettier": "^2.1.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/punyabz8/JIRA-React.git"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
-  "keywords": [],
-  "author": "",
-  "license": "",
-  "bugs": {
-    "url": "https://github.com/punyabz8/JIRA-React/issues"
-  },
-  "homepage": "https://github.com/punyabz8/JIRA-React#readme"
+  "lint-staged": {
+    "*.{css,md,json}": [
+      "prettier . --write"
+    ],
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "prettier . --write"
+    ]
+  }
 }
