@@ -1,36 +1,31 @@
-import React from 'react';
-
-import Home from './views/Home';
-
+import React, { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
-import Button from 'react-bootstrap/Button';
+import Routers from './Routers';
+import { setAccessToken } from './helper/storage';
 
 function App() {
-  const {
-    loginWithRedirect,
-    logout,
-    isAuthenticated,
-    user,
-    isLoading,
-  } = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
 
-  // TODO: remove this , this is temprary for demo
-  const renderContent = () => {
-    return (
-      <div>
-        {isAuthenticated ? (
-          <Button onClick={logout}>Logout</Button>
-        ) : (
-          <Button onClick={loginWithRedirect}>Login</Button>
-        )}
+  useEffect(() => {
+    async function getAccessToken() {
+      if (isAuthenticated) {
+        const token = await getAccessTokenSilently();
 
-        {user ? <div>You are logged in as {user.name}</div> : null}
-      </div>
-    );
-  };
+        setAccessToken(token);
+      }
+    }
 
-  return <div className="p-3">{isLoading ? <div></div> : renderContent()}</div>;
+    getAccessToken();
+  }, [isAuthenticated, getAccessTokenSilently]);
+  return (
+    <Router>
+      <Switch>
+        <Routers />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
