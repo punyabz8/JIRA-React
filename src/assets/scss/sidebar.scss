@@ -1,0 +1,51 @@
+@import './variable';
+.sidebar-wrapper {
+  width: 210px;
+  height: calc(100vh - 64px);
+  background-color: $secondaryColor;
+
+  .project-title-wrapper {
+    padding: 10px 10px 0 10px;
+    .button-text {
+      line-height: 0.9rem;
+      font-size: 0.9rem;
+
+      span {
+        display: inline-block;
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  ul {
+    padding: 10px;
+
+    li {
+      width: 100%;
+
+      .button-text {
+        line-height: 0.9rem;
+        font-size: 0.9rem;
+
+        span {
+          display: inline-block;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}
+
+.sidebar-button {
+  color: $darkColor;
+
+  &:hover {
+    color: $primaryColor;
+    background-color: $brightGray;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+}
