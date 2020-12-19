@@ -43,6 +43,10 @@
     color: $primaryColor;
     background-color: $brightGray;
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
   div {
     display: flex;

@@ -15,32 +15,30 @@ const Sidebar = () => {
   return (
     <div className="sidebar-wrapper">
       <div className="project-title-wrapper">
-        <SidebarButton>
-          <FcCircuit size="2rem" className="mr-2" />
-          <span className="button-text">
-            <strong>Jira clone</strong>
-            <span>Classic software project</span>
-          </span>
-        </SidebarButton>
+        <FcCircuit size="2rem" className="mr-2" />
+        <span className="button-text">
+          <strong>Jira clone</strong>
+          <span>Classic software project</span>
+        </span>
       </div>
 
       <ul>
         <li>
-          <SidebarButton>
+          <SidebarButton path="/">
             <RiLayoutMasonryLine className="mr-3" />
             <span className="button-text">Dashboard</span>
           </SidebarButton>
         </li>
 
         <li>
-          <SidebarButton>
+          <SidebarButton path="/board">
             <RiTableAltLine className="mr-3" />
             <span className="button-text">Board</span>
           </SidebarButton>
         </li>
 
         <li>
-          <SidebarButton>
+          <SidebarButton path="/setting">
             <RiSettings2Fill className="mr-3" />
             <span className="button-text"> Project setting</span>
           </SidebarButton>
