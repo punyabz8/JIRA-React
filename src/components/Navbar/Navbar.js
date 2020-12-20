@@ -16,7 +16,7 @@ const Navbar = () => {
         <ul>
           <li>
             <div className="logo-wrapper">
-              <img src={image}></img>
+              <img src={image} alt="logo"></img>
             </div>
           </li>
           <li>Your work</li>
