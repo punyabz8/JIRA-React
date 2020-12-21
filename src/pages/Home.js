@@ -17,7 +17,10 @@ const Home = () => {
         <Sidebar />
         <section className="p-3">
           <Switch>
-            <PrivateRouter path="/" component={Dashboard} exact></PrivateRouter>
+            <PrivateRouter
+              path="/dashboard"
+              component={Dashboard}
+            ></PrivateRouter>
             <PrivateRouter path="/board" component={Board}></PrivateRouter>
           </Switch>
         </section>
