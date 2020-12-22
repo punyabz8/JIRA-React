@@ -4,13 +4,17 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import CreateProjectPage from './pages/Create-New-Project';
+import PrivateRouter from './components/private-routes/Private-routes';
 
 const Routers = () => {
   return (
     <Switch>
-      <Route path="/create-project" component={CreateProjectPage}></Route>
-      <Route path="/project/:projectId" component={Home}></Route>
-      <Route path="/projects" component={Projects}></Route>
+      <PrivateRouter
+        path="/create-project"
+        component={CreateProjectPage}
+      ></PrivateRouter>
+      <PrivateRouter path="/projects" component={Projects}></PrivateRouter>
+      <PrivateRouter path="/" component={Home}></PrivateRouter>
     </Switch>
   );
 };

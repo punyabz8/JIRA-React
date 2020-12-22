@@ -10,7 +10,7 @@ import addProject from '../../services/project';
 import '../../assets/scss/createProject.scss';
 
 const CreateProjectForm = () => {
-  const [data, setData] = useState({ projectName: '', key: '' });
+  const [data, setData] = useState({ name: '', key: '' });
   const { getAccessTokenSilently } = useAuth0();
 
   const handleSubmit = async (e) => {
@@ -33,7 +33,7 @@ const CreateProjectForm = () => {
         <Input
           label="Project Name"
           handleChange={handleChange}
-          name="projectName"
+          name="name"
           placeholder="ex. PROJECT XYZ"
         />
 
