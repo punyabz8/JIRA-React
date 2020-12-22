@@ -22,9 +22,9 @@ const Navbar = () => {
                 <img src={image} alt="logo"></img>
               </div>
             </li>
-            <li>Your work</li>
-            <li>Filter</li>
-            <li>Dashboard</li>
+            <li>
+              <a href="/projects">Projects</a>
+            </li>
             <li>
               <Button onClick={() => setShowCreateModal(true)}>Create</Button>
             </li>

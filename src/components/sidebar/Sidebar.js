@@ -3,6 +3,7 @@ import React from 'react';
 import { FcCircuit } from 'react-icons/fc';
 import { useRouteMatch } from 'react-router-dom';
 import { RiTableAltLine, RiSettings2Fill } from 'react-icons/ri';
+import { MdInsertChart } from 'react-icons/md';
 
 import SidebarButton from './Sidebar-button';
 
@@ -40,6 +41,13 @@ const Sidebar = () => {
           <SidebarButton path={`${url}/setting`}>
             <RiSettings2Fill className="mr-3" />
             <span className="button-text"> Project setting</span>
+          </SidebarButton>
+        </li>
+
+        <li>
+          <SidebarButton path={`${url}/chart`}>
+            <MdInsertChart className="mr-3" />
+            <span className="button-text"> Chart</span>
           </SidebarButton>
         </li>
       </ul>
