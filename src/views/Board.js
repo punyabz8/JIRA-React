@@ -10,6 +10,7 @@ const Board = () => {
   // TODO: remove this after integration.
 
   const [task, setTask] = useState(MockTask);
+  const [currentOverTaskIndex, setCurrentOverTaskIndex] = useState(null);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -35,6 +36,10 @@ const Board = () => {
     }
   };
 
+  const handleDragEnter = (index) => {
+    setCurrentOverTaskIndex(index);
+  };
+
   return (
     <div className="board-page-wrapper">
       <section className="board-header">
@@ -49,6 +54,7 @@ const Board = () => {
             data={item[1]}
             onDrop={handleDrop}
             onDragOver={handleDragOver}
+            onDragEnter={handleDragEnter}
           />
         ))}
       </section>

@@ -16,8 +16,8 @@ const CreateProjectForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = await getAccessTokenSilently();
-    const newProject = await addProject(data, token);
-    // console.log(newProject)
+
+    await addProject(data, token);
   };
 
   const handleChange = (e) => {
