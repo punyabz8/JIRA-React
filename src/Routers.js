@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -13,8 +13,13 @@ const Routers = () => {
         path="/create-project"
         component={CreateProjectPage}
       ></PrivateRouter>
+      <PrivateRouter path="/project/:id" component={Home}></PrivateRouter>
       <PrivateRouter path="/projects" component={Projects}></PrivateRouter>
-      <PrivateRouter path="/" component={Home}></PrivateRouter>
+      <PrivateRouter
+        path="/"
+        exact
+        component={() => <Redirect to="/projects" />}
+      ></PrivateRouter>
     </Switch>
   );
 };
