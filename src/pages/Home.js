@@ -2,10 +2,11 @@ import React from 'react';
 
 import { Switch, useRouteMatch } from 'react-router-dom';
 
+import Board from '../views/Board';
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/sidebar/Sidebar';
-
-import Board from '../views/Board';
+import ProjectSetting from '../views/ProjectSetting';
+import ChartDisplay from '../components/Charts/Chart';
 import PrivateRouter from '../components/private-routes/Private-routes';
 
 const Home = () => {
@@ -25,6 +26,14 @@ const Home = () => {
             <PrivateRouter
               path={`${url}/board`}
               component={Board}
+            ></PrivateRouter>
+            <PrivateRouter
+              path={`${url}/setting`}
+              component={ProjectSetting}
+            ></PrivateRouter>
+            <PrivateRouter
+              path={`${url}/chart`}
+              component={ChartDisplay}
             ></PrivateRouter>
           </Switch>
         </section>
