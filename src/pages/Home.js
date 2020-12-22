@@ -1,15 +1,16 @@
 import React from 'react';
 
-import { Switch } from 'react-router-dom';
+import { Switch, useRouteMatch } from 'react-router-dom';
 
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/sidebar/Sidebar';
 
-import Dashboard from '../views/Dashboard';
 import Board from '../views/Board';
 import PrivateRouter from '../components/private-routes/Private-routes';
 
 const Home = () => {
+  const { url } = useRouteMatch();
+
   return (
     <div>
       <Navbar />
@@ -17,11 +18,14 @@ const Home = () => {
         <Sidebar />
         <section className="p-3">
           <Switch>
-            <PrivateRouter
-              path="/dashboard"
+            {/* <PrivateRouter
+              path={`${url}/dashboard`}
               component={Dashboard}
+            ></PrivateRouter> */}
+            <PrivateRouter
+              path={`${url}/board`}
+              component={Board}
             ></PrivateRouter>
-            <PrivateRouter path="/board" component={Board}></PrivateRouter>
           </Switch>
         </section>
       </section>

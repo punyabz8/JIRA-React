@@ -53,7 +53,7 @@ const Projects = () => {
                     <MdStarBorder />
                   </td>
                   <td>
-                    <a href={`project/${project.id}`}>{project.name}</a>
+                    <a href={`project/${project.id}/board`}>{project.name}</a>
                   </td>
                   <td>{project.key}</td>
                   <td>{project.type}</td>

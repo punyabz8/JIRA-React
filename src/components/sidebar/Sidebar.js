@@ -1,17 +1,16 @@
 import React from 'react';
 
 import { FcCircuit } from 'react-icons/fc';
-import {
-  RiTableAltLine,
-  RiLayoutMasonryLine,
-  RiSettings2Fill,
-} from 'react-icons/ri';
+import { useRouteMatch } from 'react-router-dom';
+import { RiTableAltLine, RiSettings2Fill } from 'react-icons/ri';
 
 import SidebarButton from './Sidebar-button';
 
 import '../../assets/scss/sidebar.scss';
 
 const Sidebar = () => {
+  const { url } = useRouteMatch();
+
   return (
     <div className="sidebar-wrapper">
       <div className="project-title-wrapper">
@@ -23,22 +22,22 @@ const Sidebar = () => {
       </div>
 
       <ul>
-        <li>
-          <SidebarButton path="/dashboard">
+        {/* <li>
+          <SidebarButton path={`${url}/dashboard`}>
             <RiLayoutMasonryLine className="mr-3" />
             <span className="button-text">Dashboard</span>
           </SidebarButton>
-        </li>
+        </li> */}
 
         <li>
-          <SidebarButton path="/board">
+          <SidebarButton path={`${url}/board`}>
             <RiTableAltLine className="mr-3" />
             <span className="button-text">Board</span>
           </SidebarButton>
         </li>
 
         <li>
-          <SidebarButton path="/setting">
+          <SidebarButton path={`${url}/setting`}>
             <RiSettings2Fill className="mr-3" />
             <span className="button-text"> Project setting</span>
           </SidebarButton>
