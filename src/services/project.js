@@ -1,20 +1,13 @@
-const addProject = async (data, token) => {
-  try {
-    const response = await fetch('http://localhost:4000/v1/projects', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(data),
-    });
+import * as http from '../utils/http';
 
-    return response;
-  } catch (ex) {
-    return {
-      error: ex.message,
-    };
-  }
+export const addProject = async (data) => {
+  const response = http.post('http://localhost:4000/v1/projects', data);
+
+  return response;
 };
 
-export default addProject;
+export const getProjects = async () => {
+  const data = http.get('http://localhost:4000/v1/projects');
+
+  return data;
+};
