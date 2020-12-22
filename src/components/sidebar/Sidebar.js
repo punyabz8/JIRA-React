@@ -24,7 +24,7 @@ const Sidebar = () => {
 
       <ul>
         <li>
-          <SidebarButton path="/">
+          <SidebarButton path="/dashboard">
             <RiLayoutMasonryLine className="mr-3" />
             <span className="button-text">Dashboard</span>
           </SidebarButton>
