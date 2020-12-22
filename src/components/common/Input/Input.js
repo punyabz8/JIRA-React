@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import '../../../assets/scss/Input.scss';
 
-const Input = ({ label, value, handleChange, name, placeholder }) => {
+const Input = ({ label, value, handleChange, name, placeholder, as }) => {
   return (
     <div className="input-wrapper">
       <Form.Label className="label">{label}</Form.Label>
@@ -13,6 +13,7 @@ const Input = ({ label, value, handleChange, name, placeholder }) => {
         onChange={handleChange}
         name={name}
         placeholder={placeholder}
+        as={as}
       ></Form.Control>
     </div>
   );
@@ -24,6 +25,7 @@ Input.propTypes = {
   handleChange: PropTypes.func,
   name: PropTypes.string,
   placeholder: PropTypes.string,
+  as: PropTypes.string,
 };
 
 export default Input;
