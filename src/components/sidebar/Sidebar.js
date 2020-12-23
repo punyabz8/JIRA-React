@@ -31,7 +31,7 @@ const Sidebar = () => {
         </li> */}
 
         <li>
-          <SidebarButton path={`${url}/board`}>
+          <SidebarButton path={`${url}/dashboard`}>
             <RiTableAltLine className="mr-3" />
             <span className="button-text">Board</span>
           </SidebarButton>

@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import CreateProjectPage from './pages/Create-New-Project';
 import PrivateRouter from './components/private-routes/Private-routes';
+import RedirectToBoards from './components/RedirectToBoards';
 
 const Routers = () => {
   return (
@@ -13,7 +14,14 @@ const Routers = () => {
         path="/create-project"
         component={CreateProjectPage}
       ></PrivateRouter>
-      <PrivateRouter path="/project/:id" component={Home}></PrivateRouter>
+      <PrivateRouter
+        path="/project/:id/board/:id"
+        component={Home}
+      ></PrivateRouter>
+      <PrivateRouter
+        path="/project/:id/board"
+        component={RedirectToBoards}
+      ></PrivateRouter>
       <PrivateRouter path="/projects" component={Projects}></PrivateRouter>
       <PrivateRouter
         path="/"
