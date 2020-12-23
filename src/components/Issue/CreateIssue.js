@@ -13,7 +13,7 @@ import { addTask } from '../../services/task';
 const CreateIssue = ({ show, onHide }) => {
   const { user } = useAuth0();
 
-  const [data, setData] = useState({ title: '', description: '', type: '', projects: [], boards: [], status: "BACKLOG", members: [] });
+  const [data, setData] = useState({ title: '', description: '', type: '', projects: [], boards: [], status: "backlog", members: [] });
   useEffect(async () => {
     const {projects} = await getProjects(user);
     setData({
@@ -78,7 +78,7 @@ const CreateIssue = ({ show, onHide }) => {
             label="Issue Type"
             name="type"
             selected={data.type}
-            options={[{"name":"BUG", "value": "BUG"}, {"name":"STORY", "value":"STORY"}, {"name":"TASK", "value":"TASK"} ]}
+            options={[{"name":"BUG", "value": "bug"}, {"name":"STORY", "value":"story"}, {"name":"TASK", "value":"task"} ]}
             handleSelect={handleChange}
           ></DropdownSelect>
           <Input label="Title" name="title" handleChange={(e) =>
