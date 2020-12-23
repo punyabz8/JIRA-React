@@ -38,6 +38,13 @@ const Sidebar = () => {
         </li>
 
         <li>
+          <SidebarButton path={`${url}/backlog`}>
+            <RiTableAltLine className="mr-3" />
+            <span className="button-text">Backlog</span>
+          </SidebarButton>
+        </li>
+
+        <li>
           <SidebarButton path={`${url}/setting`}>
             <RiSettings2Fill className="mr-3" />
             <span className="button-text"> Project setting</span>

@@ -1,0 +1,22 @@
+@import './variable';
+
+.backlog-task-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+}
+
+.task-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  margin: 0px;
+}
+
+.container {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
