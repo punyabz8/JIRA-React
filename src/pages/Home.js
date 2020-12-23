@@ -4,7 +4,6 @@ import { Switch, useRouteMatch } from 'react-router-dom';
 
 import Board from '../views/Board';
 import Backlog from '../views/Backlog';
-import Dashboard from '../views/Dashboard';
 import Navbar from '../components/Navbar/Navbar';
 import Sidebar from '../components/sidebar/Sidebar';
 import ProjectSetting from '../views/ProjectSetting';
@@ -21,12 +20,8 @@ const Home = () => {
         <Sidebar />
         <section className="w-100 p-3">
           <Switch>
-            {/* <PrivateRouter
-              path={`${url}/dashboard`}
-              component={Dashboard}
-            ></PrivateRouter> */}
             <PrivateRouter
-              path={`${url}/board`}
+              path={`${url}/dashboard`}
               component={Board}
             ></PrivateRouter>
             <PrivateRouter

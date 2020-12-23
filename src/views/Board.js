@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { task as MockTask } from '../mocks/task';
 import SwimLine from '../components/Swimline/Swim-line';
@@ -11,6 +11,12 @@ const Board = () => {
 
   const [task, setTask] = useState(MockTask);
   const [currentOverTaskIndex, setCurrentOverTaskIndex] = useState(null);
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      // const results = await getTasks();
+    };
+  }, []);
 
   const handleDragOver = (e) => {
     e.preventDefault();

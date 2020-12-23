@@ -6,6 +6,7 @@ import { Button } from 'react-bootstrap';
 import Input from '../common/Input/Input';
 
 import { addProject } from '../../services/project';
+import { addBoard } from '../../services/board';
 
 import '../../assets/scss/createProject.scss';
 import DropdownSelect from '../common/DropdownSelect/DropdownSelect';
@@ -32,7 +33,19 @@ const CreateProjectForm = () => {
     setIsLoading(false);
 
     if (result && !result.messages) {
-      history.push(`/project/${result.projects[0].id}/board`);
+      const { board } = await addBoard(
+        { name: 'Kanban' },
+        result.projects[0].id,
+        user
+      );
+
+      if (board) {
+        const boardId = board[0].id;
+
+        history.push(
+          `/project/${result.projects[0].id}/board/${boardId}/dashboard`
+        );
+      }
     }
   };
 
