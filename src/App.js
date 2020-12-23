@@ -4,13 +4,15 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import Routers from './Routers';
 import { setAccessToken } from './helper/storage';
+import { syncBackendUser } from './services/user';
 
 function App() {
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated, user } = useAuth0();
 
   useEffect(() => {
     async function getAccessToken() {
       if (isAuthenticated) {
+        syncBackendUser(user);
         const token = await getAccessTokenSilently();
 
         setAccessToken(token);
