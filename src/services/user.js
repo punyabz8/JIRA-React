@@ -9,7 +9,10 @@ export const syncBackendUser = async (user) => {
 };
 
 export const getProjectMembers = async (projectId, user) => {
-    const data = http.get(`http://localhost:4000/v1/projects/${projectId}/members`, user);
+  const data = http.get(
+    `http://localhost:4000/v1/projects/${projectId}/members`,
+    user
+  );
 
-    return data;
-}
+  return data;
+};

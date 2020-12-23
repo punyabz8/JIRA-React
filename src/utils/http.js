@@ -38,3 +38,23 @@ export const post = async (endpoint, data, user) => {
     };
   }
 };
+
+export const update = async (endpoint, data, user) => {
+  try {
+    const response = await fetch(endpoint, {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer ${getAccessToken()}`,
+        'Content-Type': 'application/json',
+        ...user,
+      },
+      body: JSON.stringify(data),
+    });
+
+    return response.json();
+  } catch (error) {
+    return {
+      error: error.message,
+    };
+  }
+};

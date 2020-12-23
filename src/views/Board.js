@@ -4,7 +4,7 @@ import { useRouteMatch } from 'react-router-dom';
 
 import SwimLine from '../components/Swimline/Swim-line';
 import { convertArrayToObject, convertObjectIntoArray } from '../utils/array';
-import { getTasks } from '../services/task';
+import { getTasks, updateTask } from '../services/task';
 
 import '../assets/scss/board.scss';
 
@@ -35,7 +35,10 @@ const Board = () => {
     e.preventDefault();
   };
 
-  const handleDrop = (e, category) => {
+  const handleDrop = async (e, category) => {
+    const urlArr = url.split('/');
+    const projectId = urlArr[2];
+    const boardId = urlArr[4];
     const id = JSON.parse(e.dataTransfer.getData('id'));
     const draggingItem = task[id.category].find((item) => item.id === id.id);
 
@@ -52,6 +55,16 @@ const Board = () => {
             ? task[category]
             : [...task[category], draggingItem],
       });
+
+      await updateTask(
+        projectId,
+        boardId,
+        id.id,
+        {
+          status: category,
+        },
+        user
+      );
     }
   };
 
