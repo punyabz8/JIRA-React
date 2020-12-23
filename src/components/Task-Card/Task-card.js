@@ -17,7 +17,7 @@ const TaskCard = ({ onDragEnter, item, handleDragStart, index }) => {
         handleDragStart(e, item.id || '');
       }}
     >
-      <div className="title mb-2">{item.name}</div>
+      <div className="title mb-2">{item.title}</div>
       <div className="mb-2">
         <LabelChip text="LOGIN" />
       </div>
@@ -25,7 +25,7 @@ const TaskCard = ({ onDragEnter, item, handleDragStart, index }) => {
       <div className="task-token-wrapper mb-2 ">
         <div className="d-flex align-items-center">
           <div className="task-type-icon mr-1">
-            <img src={taskTypeBasedImage('task')}></img>
+            <img src={taskTypeBasedImage(item.type)}></img>
           </div>
           <span className="token">TASK-1111</span>
         </div>

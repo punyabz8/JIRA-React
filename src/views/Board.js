@@ -1,21 +1,34 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, { useEffect, useState } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 
-import { task as MockTask } from '../mocks/task';
 import SwimLine from '../components/Swimline/Swim-line';
-import { convertObjectIntoArray } from '../utils/array';
+import { convertArrayToObject, convertObjectIntoArray } from '../utils/array';
+import { getTasks } from '../services/task';
 
 import '../assets/scss/board.scss';
 
 const Board = () => {
-  // TODO: remove this after integration.
+  const { url } = useRouteMatch();
+  const { user } = useAuth0();
 
-  const [task, setTask] = useState(MockTask);
+  const [task, setTask] = useState([]);
   const [currentOverTaskIndex, setCurrentOverTaskIndex] = useState(null);
+  const swimlines = ['todo', 'done', 'In Progress', 'QA'];
 
   useEffect(() => {
+    const urlArr = url.split('/');
+    const projectId = urlArr[2];
+    const boardId = urlArr[4];
     const fetchTasks = async () => {
-      // const results = await getTasks();
+      const results = await getTasks(projectId, boardId, user);
+
+      setTask(convertArrayToObject(results.issues, 'status', swimlines));
+
+      // setTask(results.issues);
     };
+
+    fetchTasks();
   }, []);
 
   const handleDragOver = (e) => {
