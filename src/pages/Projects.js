@@ -8,6 +8,7 @@ import { MdStar, MdStarBorder, MdMoreHoriz } from 'react-icons/md';
 import Navbar from '../components/Navbar/Navbar';
 import { getProjects } from '../services/project';
 import RoundAvatar from '../components/common/RoundAvatar/RoundAvatar';
+import { isArrayEmpty } from '../utils/array';
 
 import '../assets/scss/projectList.scss';
 
@@ -50,31 +51,35 @@ const Projects = () => {
               </tr>
             </thead>
             <tbody>
-              {projectsList.map((project) => (
-                <tr key={project.id}>
-                  <td>
-                    <MdStarBorder />
-                  </td>
-                  <td>
-                    <a href={`project/${project.id}/board`}>{project.name}</a>
-                  </td>
-                  <td>{project.key}</td>
-                  <td>{project.type}</td>
-                  <td>
-                    <div className="d-flex align-items-center">
-                      <div className="mr-2">
-                        <RoundAvatar image={project.picture} />
+              {!isArrayEmpty(projectsList) ? (
+                projectsList.map((project) => (
+                  <tr key={project.id}>
+                    <td>
+                      <MdStarBorder />
+                    </td>
+                    <td>
+                      <a href={`project/${project.id}/board`}>{project.name}</a>
+                    </td>
+                    <td>{project.key}</td>
+                    <td>{project.type}</td>
+                    <td>
+                      <div className="d-flex align-items-center">
+                        <div className="mr-2">
+                          <RoundAvatar image={project.picture} />
+                        </div>
+                        <div>
+                          {project.given_name} {project.family_name}
+                        </div>
                       </div>
-                      <div>
-                        {project.given_name} {project.family_name}
-                      </div>
-                    </div>
-                  </td>
-                  <td>
-                    <MdMoreHoriz />
-                  </td>
-                </tr>
-              ))}
+                    </td>
+                    <td>
+                      <MdMoreHoriz />
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <div>no projects found</div>
+              )}
             </tbody>
           </Table>
         </section>
