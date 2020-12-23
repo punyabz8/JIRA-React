@@ -23,7 +23,7 @@ const Board = () => {
     const fetchTasks = async () => {
       const results = await getTasks(projectId, boardId, user);
 
-      setTask(convertArrayToObject(results.issues, 'status', swimlines));
+      setTask(convertArrayToObject(results.issues, swimlines));
 
       // setTask(results.issues);
     };

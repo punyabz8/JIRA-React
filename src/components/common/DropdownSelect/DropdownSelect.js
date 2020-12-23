@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const DropdownSelect = ({
   placeholder,
   label,
-  selected="--",
+  selected = '--',
   options,
   handleSelect,
   name,
@@ -20,7 +20,9 @@ const DropdownSelect = ({
         onChange={(e) => handleSelect(name, e.target.value)}
       >
         {options.map((item) => (
-          <option value={item.value}>{item.name}</option>
+          <option key={item.value} value={item.value}>
+            {item.name}
+          </option>
         ))}
       </Form.Control>
     </div>
@@ -31,6 +33,7 @@ DropdownSelect.propTypes = {
   placeholder: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
+  selected: PropTypes.string,
   options: PropTypes.array,
   handleSelect: PropTypes.func,
 };
