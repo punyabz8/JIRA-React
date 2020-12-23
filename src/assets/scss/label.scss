@@ -1,0 +1,11 @@
+@import './variable';
+
+.label-chip {
+  padding: inline-block;
+  font-size: 0.8rem;
+  font-weight: bolder;
+  padding: 4px 8px;
+  color: $midNightGray;
+  border-radius: 5px;
+  background-color: $lightBlue;
+}

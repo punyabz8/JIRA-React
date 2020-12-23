@@ -2,10 +2,12 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
+import TaskCard from '../Task-Card/Task-card';
+
 import { isArrayEmpty } from '../../utils/array';
 import '../../assets/scss/swimLine.scss';
 
-const SwimLine = ({ data, onDrop, onDragOver, group }) => {
+const SwimLine = ({ data, onDrop, onDragOver, group, onDragEnter }) => {
   const handleDragStart = (e, id) => {
     e.dataTransfer.setData('id', JSON.stringify({ id, category: group }));
   };
@@ -23,17 +25,14 @@ const SwimLine = ({ data, onDrop, onDragOver, group }) => {
       </section>
 
       {!isArrayEmpty(data)
-        ? data.map((item) => (
-            <div
-              className="task-wrapper"
-              key={item.id || ''}
-              draggable
-              onDragStart={(e) => {
-                handleDragStart(e, item.id || '');
-              }}
-            >
-              {item.name}
-            </div>
+        ? data.map((item, index) => (
+            <TaskCard
+              item={item}
+              handleDragStart={handleDragStart}
+              index={index}
+              onDragEnter={onDragEnter}
+              key={item.id}
+            />
           ))
         : null}
     </div>
@@ -43,6 +42,7 @@ const SwimLine = ({ data, onDrop, onDragOver, group }) => {
 SwimLine.propTypes = {
   data: PropTypes.array,
   onDragOver: PropTypes.func,
+  onDragEnter: PropTypes.func,
   onDrop: PropTypes.func,
   group: PropTypes.string,
 };

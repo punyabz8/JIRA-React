@@ -5,11 +5,11 @@ export const task = {
   todo: [
     {
       id: uuidv4(),
-      name: 'Todo 1',
+      name: 'estibulum eleifend imperdiet consequat.',
     },
     {
       id: uuidv4(),
-      name: 'Todo 2',
+      name: 'Maecenas placerat efficitur iaculis',
     },
   ],
   inProgress: [
@@ -33,4 +33,6 @@ export const task = {
       name: 'Done task 2',
     },
   ],
+
+  QA: [],
 };

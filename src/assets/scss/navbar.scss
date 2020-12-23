@@ -15,11 +15,13 @@ img {
     ul {
       margin: 0;
       padding: 0;
-      li {
+      li,
+      a {
         color: $darkColor;
         display: inline-block;
         padding: 0.8rem;
         font-weight: bold;
+        text-decoration: none;
 
         .logo-wrapper {
           width: 150px;
