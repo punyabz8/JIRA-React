@@ -36,3 +36,39 @@ export const task = {
 
   QA: [],
 };
+
+export const backlogTask = [
+  {
+    id: uuidv4(),
+    name: 'Vivamus pulvinar nisi nulla, sed aliquet tellus venenatis in.',
+    user: {
+      image: 'https://uifaces.co/our-content/donated/vIqzOHXj.jpg',
+    },
+    status: 'todo',
+    type: 'story',
+    ticket: 'DEL-2313',
+    priority: 'major',
+  },
+  {
+    id: uuidv4(),
+    name: 'orttitor. Curabitur mattis enim eget sod',
+    user: {
+      image: 'https://uifaces.co/our-content/donated/vIqzOHXj.jpg',
+    },
+    status: 'todo',
+    type: 'story',
+    ticket: 'DEL-2313',
+    priority: 'major',
+  },
+  {
+    id: uuidv4(),
+    name: 'Nulla facilisi. In in lobortis neque, a semper tortor ',
+    user: {
+      image: 'https://uifaces.co/our-content/donated/vIqzOHXj.jpg',
+    },
+    status: 'todo',
+    type: 'task',
+    priority: 'minor',
+    ticket: 'DEL-2313',
+  },
+];
