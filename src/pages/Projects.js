@@ -7,6 +7,7 @@ import { MdStar, MdStarBorder, MdMoreHoriz } from 'react-icons/md';
 
 import Navbar from '../components/Navbar/Navbar';
 import { getProjects } from '../services/project';
+import RoundAvatar from '../components/common/RoundAvatar/RoundAvatar';
 
 import '../assets/scss/projectList.scss';
 
@@ -59,7 +60,16 @@ const Projects = () => {
                   </td>
                   <td>{project.key}</td>
                   <td>{project.type}</td>
-                  <td>{project.lead_id}</td>
+                  <td>
+                    <div className="d-flex align-items-center">
+                      <div className="mr-2">
+                        <RoundAvatar image={project.picture} />
+                      </div>
+                      <div>
+                        {project.given_name} {project.family_name}
+                      </div>
+                    </div>
+                  </td>
                   <td>
                     <MdMoreHoriz />
                   </td>
