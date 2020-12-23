@@ -1,3 +1,4 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React, { useEffect, useState } from 'react';
 
 import Table from 'react-bootstrap/Table';
@@ -11,10 +12,11 @@ import '../assets/scss/projectList.scss';
 
 const Projects = () => {
   const [projectsList, setProjectList] = useState([]);
+  const { user } = useAuth0();
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const { projects } = await getProjects();
+      const { projects } = await getProjects(user);
 
       setProjectList(projects);
     };

@@ -1,13 +1,13 @@
 import { getAccessToken } from '../helper/storage';
 
-export const get = async (endpoint) => {
+export const get = async (endpoint, user) => {
   try {
     const response = await fetch(endpoint, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${getAccessToken()}`,
         'Content-Type': 'application/json',
-        id: 1,
+        ...user,
       },
     });
 
@@ -19,13 +19,14 @@ export const get = async (endpoint) => {
   }
 };
 
-export const post = async (endpoint, data) => {
+export const post = async (endpoint, data, user) => {
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${getAccessToken()}`,
         'Content-Type': 'application/json',
+        ...user,
       },
       body: JSON.stringify(data),
     });
