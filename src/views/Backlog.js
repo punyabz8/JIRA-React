@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import BacklogComponent from '../components/BacklogComponent/BacklogComponent';
 import { backlogTask } from '../mocks/task';
-import { getTasks } from '../services/task';
+import { getTasks, updateTask } from '../services/task';
 
 import { convertArrayToBacklogObject } from '../utils/array';
 
@@ -19,7 +19,10 @@ const Backlog = () => {
     e.preventDefault();
   };
 
-  const handleDrop = (e, category) => {
+  const handleDrop = async (e, category) => {
+    const urlArr = url.split('/');
+    const projectId = urlArr[2];
+    const boardId = urlArr[4];
     let status = category;
 
     if (status !== 'backlog') {
@@ -45,6 +48,16 @@ const Backlog = () => {
             ? task[status]
             : [...task[status], draggingItem],
       });
+
+      await updateTask(
+        projectId,
+        boardId,
+        id.id,
+        {
+          status: category === 'active' ? 'todo' : 'backlog',
+        },
+        user
+      );
     }
   };
 

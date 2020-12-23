@@ -50,6 +50,7 @@ const CreateIssue = ({ show, onHide }) => {
 
   const createTask = async (e) => {
     const { projects, members, boards, projectId, boardId, ...task } = data;
+
     const res = await addTask(projectId, boardId, task, user);
   };
 
