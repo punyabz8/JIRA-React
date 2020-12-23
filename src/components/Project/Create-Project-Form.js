@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useAuth0 } from '@auth0/auth0-react';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import Input from '../common/Input/Input';
@@ -10,11 +10,12 @@ import '../../assets/scss/createProject.scss';
 
 const CreateProjectForm = () => {
   const [data, setData] = useState({ name: '', key: '' });
+  const { user } = useAuth0();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await addProject(data);
+    await addProject(data, user);
   };
 
   const handleChange = (e) => {

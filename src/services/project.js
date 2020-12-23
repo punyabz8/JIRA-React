@@ -1,13 +1,13 @@
 import * as http from '../utils/http';
 
-export const addProject = async (data) => {
-  const response = http.post('http://localhost:4000/v1/projects', data);
+export const addProject = async (data, user) => {
+  const response = http.post('http://localhost:4000/v1/projects', data, user);
 
   return response;
 };
 
-export const getProjects = async () => {
-  const data = http.get('http://localhost:4000/v1/projects');
+export const getProjects = async (user) => {
+  const data = http.get('http://localhost:4000/v1/projects', user);
 
   return data;
 };
