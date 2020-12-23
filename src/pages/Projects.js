@@ -7,6 +7,7 @@ import { MdStar, MdStarBorder, MdMoreHoriz } from 'react-icons/md';
 
 import Navbar from '../components/Navbar/Navbar';
 import { getProjects } from '../services/project';
+import { isArrayEmpty } from '../utils/array';
 
 import '../assets/scss/projectList.scss';
 
@@ -49,22 +50,26 @@ const Projects = () => {
               </tr>
             </thead>
             <tbody>
-              {projectsList.map((project) => (
-                <tr key={project.id}>
-                  <td>
-                    <MdStarBorder />
-                  </td>
-                  <td>
-                    <a href={`project/${project.id}/board`}>{project.name}</a>
-                  </td>
-                  <td>{project.key}</td>
-                  <td>{project.type}</td>
-                  <td>{project.lead_id}</td>
-                  <td>
-                    <MdMoreHoriz />
-                  </td>
-                </tr>
-              ))}
+              {!isArrayEmpty(projectsList) ? (
+                projectsList.map((project) => (
+                  <tr key={project.id}>
+                    <td>
+                      <MdStarBorder />
+                    </td>
+                    <td>
+                      <a href={`project/${project.id}/board`}>{project.name}</a>
+                    </td>
+                    <td>{project.key}</td>
+                    <td>{project.type}</td>
+                    <td>{project.lead_id}</td>
+                    <td>
+                      <MdMoreHoriz />
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <div>no projects found</div>
+              )}
             </tbody>
           </Table>
         </section>

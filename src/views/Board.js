@@ -41,7 +41,7 @@ const Board = () => {
   };
 
   return (
-    <div className="board-page-wrapper">
+    <div className="board-page-wrapper" style={{ overflowX: 'auto' }}>
       <section className="board-header">
         <strong>Project Board.</strong>
       </section>
