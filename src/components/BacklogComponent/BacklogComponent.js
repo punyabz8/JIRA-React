@@ -4,7 +4,7 @@ import TaskCardInline from '../Task-Card/TaskCardInline';
 
 import { isArrayEmpty } from '../../utils/array';
 
-const BacklogComponent = ({ title = 'Default title', tasks }) => {
+const BacklogComponent = ({ title = 'Default title', tasks, category }) => {
   return (
     <div className="backlog-container">
       <div className="font-weight-bold">{title}</div>
@@ -13,15 +13,17 @@ const BacklogComponent = ({ title = 'Default title', tasks }) => {
           tasks.map((task) => (
             <TaskCardInline
               key={task.id}
-              title={task.name}
-              image={task.user.image}
+              title={task.title}
+              image={(task.user && task.user.image) || ''}
               priority={task.priority}
               type={task.type}
               ticket={task.ticket}
+              status={category}
+              id={task.id}
             />
           ))
         ) : (
-          <div>no task left</div>
+          <div>No task</div>
         )}
       </section>
     </div>
@@ -30,6 +32,7 @@ const BacklogComponent = ({ title = 'Default title', tasks }) => {
 
 BacklogComponent.propTypes = {
   title: PropTypes.string,
+  category: PropTypes.string,
   tasks: PropTypes.array,
 };
 
