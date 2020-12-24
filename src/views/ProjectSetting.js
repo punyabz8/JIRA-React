@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useRouteMatch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Button } from 'react-bootstrap';
 import Input from '../components/common/Input/Input';
@@ -7,6 +8,7 @@ import DropdownSelect from '../components/common/DropdownSelect/DropdownSelect';
 import { updateProject } from '../services/project';
 
 const ProjectSetting = () => {
+  const { url } = useRouteMatch();
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState({ name: '', key: '', type: '' });
   const { user } = useAuth0();
@@ -15,6 +17,10 @@ const ProjectSetting = () => {
   const dropdown = useRef(null);
 
   const handleSubmit = async (e) => {
+    const urlArr = url.split('/');
+
+    const projectId = urlArr[2];
+
     e.preventDefault();
     setIsLoading(true);
 
@@ -22,7 +28,7 @@ const ProjectSetting = () => {
       data.type = types[0].name;
     }
 
-    const result = await updateProject(data, user);
+    const result = await updateProject(projectId, data, user);
 
     setIsLoading(false);
   };

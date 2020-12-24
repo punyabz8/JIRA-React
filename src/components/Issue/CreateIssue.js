@@ -119,7 +119,7 @@ const CreateIssue = ({ show, onHide }) => {
           />
           <Input
             label="Label"
-            name="type"
+            name="label"
             handleChange={(e) =>
               handleChange(e.target.name, e.target.value.trim())
             }

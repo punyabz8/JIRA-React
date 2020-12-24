@@ -8,7 +8,7 @@ export const addProject = async (data, user) => {
 
 export const updateProject = async (projectId, data, user) => {
   const response = http.update(
-    `http://localhost:4000/v1/project/${projectId}`,
+    `http://localhost:4000/v1/projects/${projectId}`,
     data,
     user
   );
