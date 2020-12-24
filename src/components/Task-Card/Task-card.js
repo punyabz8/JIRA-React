@@ -30,7 +30,7 @@ const TaskCard = ({ onDragEnter, item, handleDragStart, index }) => {
           <span className="token">TASK-1111</span>
         </div>
         <div>
-          <RoundAvatar image="https://uifaces.co/our-content/donated/vIqzOHXj.jpg" />
+          <RoundAvatar image={item.picture || ''} />
         </div>
       </div>
     </div>
