@@ -15,7 +15,7 @@ const Routers = () => {
         component={CreateProjectPage}
       ></PrivateRouter>
       <PrivateRouter
-        path="/project/:id/board/:id"
+        path="/project/:id/board/:boardId"
         component={Home}
       ></PrivateRouter>
       <PrivateRouter
