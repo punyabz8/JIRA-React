@@ -7,10 +7,12 @@ import CreateIssue from '../Issue/CreateIssue';
 
 import '../../assets/scss/navbar.scss';
 import image from '../../assets/images/jira.png';
+import ProjectMembers from '../../views/ProjectMembers';
 
 const Navbar = () => {
   const { user, logout } = useAuth0();
   const [showCreateModal, setShowCreateModal] = useState(false);
+  const [projectMembers, setShowProjectMember] = useState(false);
 
   return (
     <>
@@ -24,6 +26,17 @@ const Navbar = () => {
             </li>
             <li>
               <a href="/projects">Projects</a>
+            </li>
+
+            <li>
+              <span
+                role="button"
+                onClick={() => {
+                  setShowProjectMember(true);
+                }}
+              >
+                People
+              </span>
             </li>
             <li>
               <Button onClick={() => setShowCreateModal(true)}>Create</Button>
@@ -47,6 +60,11 @@ const Navbar = () => {
       <CreateIssue
         onHide={() => setShowCreateModal(false)}
         show={showCreateModal}
+      />
+
+      <ProjectMembers
+        show={projectMembers}
+        onHide={() => setShowProjectMember(false)}
       />
     </>
   );

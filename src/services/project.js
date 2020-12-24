@@ -6,6 +6,16 @@ export const addProject = async (data, user) => {
   return response;
 };
 
+export const updateProject = async (projectId, data, user) => {
+  const response = http.update(
+    `http://localhost:4000/v1/project/${projectId}`,
+    data,
+    user
+  );
+
+  return response;
+};
+
 export const getProjects = async (user) => {
   const data = http.get('http://localhost:4000/v1/projects', user);
 

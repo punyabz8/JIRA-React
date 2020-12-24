@@ -14,7 +14,7 @@ const BacklogComponent = ({ title = 'Default title', tasks, category }) => {
             <TaskCardInline
               key={task.id}
               title={task.title}
-              image={(task.user && task.user.image) || ''}
+              image={task.picture || ''}
               priority={task.priority}
               type={task.type}
               ticket={task.ticket}
